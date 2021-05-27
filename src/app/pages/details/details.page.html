@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="hello/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ion-text-center">
+    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png" />
+  </div>
+
+  <div>
+    <ion-fab horizontal="end" vertical="right">
+      <ion-button shape='round' color='success' (click)="resent_pin()">
+        Resent pin
+      </ion-button>
+    </ion-fab>
+  </div>
+
+  <h1>Statistic</h1>
+
+  <div>
+    <ion-item (click)="this.show_details=true; this.show_user_statistic=false">
+      <ion-label><b>Details</b></ion-label>
+      <ion-icon name="bag-add-outline"></ion-icon>
+    </ion-item>
+
+
+    <ion-list *ngIf="detailsForm">
+      <form [formGroup]="detailsForm">
+        <ion-item>
+          <ion-label position="stacked">First name: </ion-label>
+          <ion-input formControlName="firstname" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Last name: </ion-label>
+          <ion-input formControlName="lastname" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email: </ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+
+       
+        <ion-item>
+          <ion-label position="stacked">Phone: </ion-label>
+          <ion-input formControlName="phone" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Mobile: </ion-label>
+          <ion-input formControlName="mobile" type="text"></ion-input>
+        </ion-item>
+      </form>
+    </ion-list>
+  </div>
+
+  <div>
+    <ion-item (click)="this.show_user_statistic=true; this.show_details=false">
+      <ion-label><b>User statistic</b></ion-label>
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-list *ngIf="show_user_statistic">
+      <ion-item>
+        <ion-label>YOUR ACTIVITY</ion-label>
+        <ion-icon name="alarm-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>VISITS THIS MONTH</ion-label>
+      </ion-item>
+
+    </ion-list>
+  </div>
+</ion-content>

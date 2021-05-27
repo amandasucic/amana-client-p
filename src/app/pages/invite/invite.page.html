@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>Invite users</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="hello/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+  </div>
+    
+    <ion-button  shape='round' color='success' (click)="onsend(inviteForm)">Send</ion-button>
+    
+    
+    <ion-button  shape='round' color='danger' (click)="cancel()">Cancel</ion-button>
+    
+    <h1>Invite Users</h1>
+    
+      <ion-list *ngIf="inviteForm">
+        <form [formGroup]="inviteForm">    
+          <ion-item>
+           <ion-label position="stacked">Send</ion-label>
+           <ion-input formControlName="email" type="text"></ion-input>
+          </ion-item>
+  
+         <ion-item>
+          <ion-label position="stacked">Subject</ion-label>
+          <ion-input formControlName="subject" type="text"></ion-input>
+         </ion-item>
+
+         <ion-item>
+          <ion-label position="stacked">Messages</ion-label>
+          <ion-textarea formControlName="message" rows="10"></ion-textarea>
+         </ion-item>
+        </form>
+
+      </ion-list>
+        
+</ion-content>

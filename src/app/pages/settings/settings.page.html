@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="hello/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="container ion-text-center">
+    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+  </div>
+   <div>
+     <ion-fab horizontal="end" vertical="right">
+      <ion-button  shape='round' color='danger' (click)="logout()">
+        <ion-icon  name="log-out-outline"></ion-icon>
+        Logout
+      </ion-button>
+    </ion-fab>
+    </div>
+    <h1>About me</h1>
+   <div>
+    <ion-item (click)="this.show_profil=true; this.show_help=false">
+      <ion-label><b>Profil</b></ion-label>
+      <ion-icon name="bag-add-outline"></ion-icon>
+    </ion-item>
+    <ion-list *ngIf="show_profil">
+    
+   <div class="container ion-text-center">
+     <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+   </div>
+    <ion-item>
+      <ion-label position="stacked">First Name</ion-label>
+      <ion-input placeholder="Amanda" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Last Name</ion-label>
+      <ion-input placeholder="Sučić" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Email</ion-label>
+      <ion-input placeholder="amanda.sucic@gmail.com" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Mobile</ion-label>
+      <ion-input placeholder="062/636/659" type="text"></ion-input>
+    </ion-item>
+    </ion-list>
+   </div>
+    
+  
+    <ion-item (click)="this.show_help=true; this.show_profil=false">
+      <ion-label><b>Help</b></ion-label>
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-list *ngIf="show_help">
+      <ion-item>
+        <ion-label>Change password?</ion-label>
+        
+        
+      </ion-item>
+    </ion-list>
+  
+  
+
+  
+</ion-content>
+

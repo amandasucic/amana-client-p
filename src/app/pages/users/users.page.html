@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ion-text-center">
+    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+  </div>
+  <ion-fab horizontal="start" vertical="left">
+    <ion-button  shape='round' color='success' (click)="invite()">
+       <ion-icon  name="add-outline"></ion-icon>
+       Invite
+    </ion-button>
+ </ion-fab>
+ <ion-item (click)="this.show_users_list=true">
+  <ion-label postition="stacked"><b>Users List</b></ion-label>
+  <ion-icon name="chevron-forward-outline"></ion-icon>
+
+ </ion-item>
+  <div *ngIf="users">
+  <ion-list *ngFor="let user of users">
+    <ion-item>
+      <ion-thumbnail>
+        <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">{{user.firstName}}</ion-label>
+      
+      <ion-icon name="information-outline">{{user.lastName}}</ion-icon>
+      <button [routerLink]="['../../details/',user.id]">Details</button>
+      <ion-label>{{user.email}}</ion-label>
+      <ion-icon name="cart-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+  </div>
+  
+  
+
+
+  
+
+
+
+</ion-content>
