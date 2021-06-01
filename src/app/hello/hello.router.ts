@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../services/auth-guard.service';
 import { HelloPage } from './hello.page';
 
 const routes: Routes = [
@@ -17,7 +18,7 @@ const routes: Routes = [
         },
         {
             path:'settings',
-            loadChildren: ()=>import('../pages/settings/settings.module').then(m =>m.SettingsPageModule)
+            loadChildren: ()=>import('../pages/settings/settings.module').then(m =>m.SettingsPageModule), canActivate:[AuthGuard]
         },
     ]
   }

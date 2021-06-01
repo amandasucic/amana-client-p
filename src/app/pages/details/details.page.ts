@@ -1,8 +1,9 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { UsersServiceService } from 'src/app/services/users-service.service';
 
 
@@ -22,6 +23,7 @@ export class DetailsPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private Activatedroute: ActivatedRoute,
     private router: Router,
+    private auth: AuthService,
     private userService: UsersServiceService) {
     this.user = null;
     this.id = this.Activatedroute.snapshot.paramMap.get('id');
@@ -31,7 +33,8 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     this.GetUser(this.id)
-    
+    var i = this.auth.getRoles();
+    console.log(i)
   }
 
   GetUser(id: string) {

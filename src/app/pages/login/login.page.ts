@@ -48,7 +48,6 @@ export class LoginPage implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-
           this.router.navigate(['hello/home'])
         },
         error => {
