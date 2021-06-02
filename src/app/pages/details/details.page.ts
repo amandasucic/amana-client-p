@@ -33,8 +33,8 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     this.GetUser(this.id)
-    var i = this.auth.getRoles();
-    console.log(i)
+    /*var i = this.auth.getRoles();*/
+   /*/ console.log(i)*/
   }
 
   GetUser(id: string) {

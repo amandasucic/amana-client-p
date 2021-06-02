@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule)
+    loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule),  canActivate:[AuthGuard]
    
     
   },

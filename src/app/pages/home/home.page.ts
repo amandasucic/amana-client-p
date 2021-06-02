@@ -15,7 +15,7 @@ export class HomePage implements OnInit {
     
  
   ngOnInit() {
-   this.authService.getRoles()
+   /*this.authService.getRoles()*/
   }
 
   async invite(){

@@ -42,7 +42,7 @@ export class ProfilPage implements OnInit {
   }
 
   GetProfil() {
-    this.profilService.getProfil().subscribe((result) => {
+    this.profilService.getProfil("1").subscribe((result) => {
       //console.log(result)
       this.profil = result;
       console.log(this.profil);

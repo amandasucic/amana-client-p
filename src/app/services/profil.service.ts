@@ -7,13 +7,12 @@ import { Profil } from '../models/profil';
   providedIn: 'root'
 })
 export class ProfilService {
-  url ="https://resources.xtend.project.cox4.eu/api/aut/v1/Accounts/6/currentUser";
+  url ="https://resources.xtend.project.cox4.eu/api/aut/v1/Accounts/";
   
   constructor(private http: HttpClient) { }
-  
 
-  getProfil() {
-    return this.http.get<Profil>(this.url );
+  getProfil(id: string) {
+    return this.http.get<Profil>(this.url + id + "/currentUser" );
   }
 
   

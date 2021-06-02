@@ -3,10 +3,10 @@ import {
   CanActivate,
   ActivatedRouteSnapshot,
   RouterStateSnapshot,
-  UrlTree,
+  
   Router,
 } from "@angular/router";
-import { RouterLinkDelegate } from "@ionic/angular";
+
 
 import { AuthService } from "../services/auth.service";
 
@@ -19,10 +19,20 @@ export class AuthGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
-    const user = this.authService.isAuthenticated();
+    /*const user = this.authService.isAuthenticated();*/
+
+
+    if (this.authService.isAuthenticated()) {
+      return true;
+    }
+
+    this.router.navigate(['login']);
+    return false;
+  }
+}
     
     /*console.log(userRoles);*/
-    if(!this.authService.isAuthenticated){
+    /*f(!this.authService.isAuthenticated){
       this.router.navigate(['login']);
           return false;
 
@@ -66,4 +76,3 @@ export class AuthGuard implements CanActivate {
          
        }}*/
       
-}

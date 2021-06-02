@@ -11,10 +11,10 @@ import { Storage } from '@ionic/storage'
 import { JwtInterceptor, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuard } from './services/auth-guard.service';
 
-export function jwtOptionsFactory(storage) {
+export function jwtOptionsFactory() {
   return {
     tokenGetter: () => {
-      //return storage.get('access_token');
+      return localStorage.get('localToken');
       return true;
     },
     whitelistedDomains: ['localhost:8100']
