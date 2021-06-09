@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { InviteUser } from '../models/invite-user';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UsersServiceService {
 
   url = "https://resources.xtend.project.cox4.eu/api/cpm_mobile/v1/AppContacts";

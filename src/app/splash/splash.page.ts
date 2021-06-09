@@ -12,6 +12,7 @@ export class SplashPage implements OnInit {
 
   constructor(public router:Router, private authService: AuthService) {
     setTimeout(() =>{
+      console.log(this.authService.isAuthenticated(),'gfgf')
       if (this.authService.isAuthenticated()) {
         this.router.navigateByUrl('hello/home');
         console.log('sese')

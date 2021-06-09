@@ -17,6 +17,7 @@ import { AuthService } from './services/auth.service';
 import { ProfilService } from './services/profil.service';
 import { Router, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { UsersServiceService } from './services/users-service.service';
 
 
 
@@ -34,6 +35,7 @@ import { AppRoutingModule } from './app-routing.module';
   providers: [AuthGuard, 
     AuthService, 
     ProfilService, 
+    UsersServiceService,
     Storage,
     { provide: HTTP_INTERCEPTORS, useClass: JwtIntercepter, multi: true },
     ], 

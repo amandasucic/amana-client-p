@@ -67,11 +67,14 @@ export class AuthService {
 
   isAuthenticated() {
     var value = this.authenticationState.value;
-    return value &&  localStorage.getItem('token');
+    if (localStorage.getItem('token')!=undefined){
+      var x=true;
+    }
+    return x;
   }
 
   logout() {
-    this.storage.remove("token");
+    localStorage.removeItem("token");
 
     this.authenticationState.next(false);
 
