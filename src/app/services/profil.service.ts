@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { Profil } from '../models/profil';
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ProfilService {
   url ="https://resources.xtend.project.cox4.eu/api/aut/v1/Accounts/";
   

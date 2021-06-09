@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profil } from 'src/app/models/profil';
 import { User } from 'src/app/models/user';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProfilService } from 'src/app/services/profil.service';
 import { UsersServiceService } from 'src/app/services/users-service.service';
 
@@ -20,21 +21,23 @@ export class SettingsPage implements OnInit {
   public id: string;
   public profilForm: FormGroup;
  public profil: Profil
+ public loggedIn: any;
 
   constructor(public formBuilder: FormBuilder, private Activatedroute: ActivatedRoute,
     private router: Router,
-    private profilService: ProfilService) {
+    private profilService: ProfilService, private authService: AuthService) {
     this.profil = null;
-    
-
+    this.loggedIn=authService.isAuthenticated();
   }
 
 
   ngOnInit() {
-    this.GetProfil()
+    if(this.loggedIn = true){
+      this.GetProfil()}
   }
   
   logout(){
+    this.authService.logout();
     this.router.navigate(['login'])
   
 }

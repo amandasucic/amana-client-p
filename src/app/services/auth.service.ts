@@ -1,36 +1,38 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, from, of, throwError } from "rxjs";
-import { catchError, map, switchMap, take, tap } from "rxjs/operators";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { AlertController, Platform } from '@ionic/angular';
-import { HttpClient } from "@angular/common/http";
+import { BehaviorSubject, } from "rxjs";
+import { catchError, map, } from "rxjs/operators";
+
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { environment } from "src/environments/environment";
-import jwt_decode from 'jwt-decode';
-import { Storage } from '@ionic/storage';
+
+import { Storage } from '@ionic/storage-angular';
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
 
-  isAuthenticatedgetToken(): boolean {
-    throw new Error("Method not implemented.");
-  }
+
 
   url = environment.url;
   authenticationState = new BehaviorSubject(false);
+  authService: any;
+  public token: string;
   constructor(
     private http: HttpClient,
     private storage: Storage
   ) {
-    storage.create();
+    this.storage.create();
   }
 
   // Sign in a user and store access and refres token
   login(credentials) {
+    /*let headers = new Headers({ 'Authorization': 'Bearer ' + this.authService.token});*/
+    /* let options = new RequestOptions({ headers: headers });*/
     return this.http.post(this.url + 'api/aut/v1/Auth/login', credentials).pipe(
       map((res: { accessToken, refreshToken }) => {
-        localStorage.setItem("localToken", res.accessToken.token);
+        this.storage.set("token", res.accessToken.token);
+        localStorage.setItem("token", res.accessToken.token);
         /*this.storage.set("role", res.accessToken.role);*/
         this.authenticationState.next(true);
         return true;
@@ -40,18 +42,19 @@ export class AuthService {
         throw new Error(e);
       })
     )
+  
   }
 
 
   getToken() {
-    var token = localStorage.getItem("localToken");
+    localStorage.getItem('token');
+    this.storage.get("token").then((result) => {
+      this.token = result;
+    })
     //this.storage.get("token").then(token => {
-      if (token) {
-        return token;
-      } else {
-        localStorage.removeItem("localToken");
-      }
-    
+
+    return  localStorage.getItem('token');
+
   }
 
   /* getRoles() {
@@ -64,11 +67,11 @@ export class AuthService {
 
   isAuthenticated() {
     var value = this.authenticationState.value;
-    return value && localStorage.getItem("localToken");
+    return value &&  localStorage.getItem('token');
   }
 
   logout() {
-    localStorage.removeItem("localToken");
+    this.storage.remove("token");
 
     this.authenticationState.next(false);
 
