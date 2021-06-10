@@ -27,7 +27,7 @@ export class SettingsPage implements OnInit {
     private router: Router,
     private profilService: ProfilService, private authService: AuthService) {
     this.profil = null;
-    this.loggedIn=authService.isAuthenticated();
+    this.loggedIn=this.authService.isAuthenticated();
   }
 
 

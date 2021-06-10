@@ -33,6 +33,8 @@ export class AuthService {
       map((res: { accessToken, refreshToken }) => {
         this.storage.set("token", res.accessToken.token);
         localStorage.setItem("token", res.accessToken.token);
+        this.storage.set("refreshToken", res.refreshToken.token);
+        localStorage.setItem("refreshToken",res.refreshToken.token);
         /*this.storage.set("role", res.accessToken.role);*/
         this.authenticationState.next(true);
         return true;
@@ -57,13 +59,17 @@ export class AuthService {
 
   }
 
-  /* getRoles() {
-      this.storage.get("role").then(roles => {
-        if (roles) {
-          return roles;
-        }
-      })
-    }*/
+  getrefreshToken(){
+    localStorage.getItem('refreshToken');
+    this.storage.get("refreshToken").then((result) => {
+      this.token = result;
+    })
+    //this.storage.get("token").then(token => {
+
+    return  localStorage.getItem('refreshToken');
+
+
+  }
 
   isAuthenticated() {
     var value = this.authenticationState.value;
