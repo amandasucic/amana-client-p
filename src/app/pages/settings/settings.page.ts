@@ -44,7 +44,7 @@ export class SettingsPage implements OnInit {
 
   GetProfil() {
     this.profilService.getProfil("1").subscribe(result => {
-      console.log(result)
+      console.log(result, "profill")
       this.profil = result;
       this.ProfilForm();
 

@@ -1,63 +1,69 @@
-import { HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpHeaders, HttpInterceptor, HttpRequest } from "@angular/common/http";
 import { Injectable, Injector } from "@angular/core";
-import { BehaviorSubject, combineLatest, Observable } from "rxjs";
+import { BehaviorSubject, combineLatest, Observable, throwError } from "rxjs";
 import { catchError, filter, finalize, switchMap, take } from "rxjs/operators";
 import { AuthService } from "../services/auth.service";
 
 
 @Injectable()
 export class JwtIntercepter implements HttpInterceptor {
-    private authService: AuthService;
-    isRefreshToken: any;
-    tokenSubject: any;
-    storage: any;
-    jwtHelper: any;
-   
-    
-    constructor(private inj: Injector) {
-        setTimeout(() => {
-            this.authService = this.inj.get(AuthService);
-        })
-    }
-    
-   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-     let authenticated = this.authService.isAuthenticated();
-     var token=this.authService.getToken();
-        var token  = this.authService.getToken();
-        console.log("intercep", token)
-        if (authenticated) {
-            request = request.clone({
-                setHeaders: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-        }console.log('hshs')
-        return next.handle(request)
-    }
-    
+  private authService: AuthService;
+  private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+  isRefreshToken: boolean = false;
 
-private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
-  if (!this.isRefreshToken) {
-   this.isRefreshToken = true;
-    this.refreshTokenSubject.next(null);
-
-    return this.authService.getrefreshToken().pipe(
-      switchMap((token: any) => {
-        this.isRefreshToken = false;
-        this.refreshTokenSubject.next(token.jwt);
-        return next.handle(this.addToken(request, token.jwt));
-      }));
-
-  } else {
-    return this.refreshTokenSubject.pipe(
-      filter(token => token != null),
-      take(1),
-      switchMap(jwt => {
-        return next.handle(this.addToken(request, jwt));
-      }));
+  constructor(private inj: Injector) {
+    setTimeout(() => {
+      this.authService = this.inj.get(AuthService);
+    })
   }
-}addToken(request: HttpRequest<any>, jwt: any): HttpRequest<any> {
-        throw new Error("Method not implemented.");
-    }}
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log("interc")
+    let authenticated = this.authService.isAuthenticated();
+    var token = this.authService.getToken();
+    if (authenticated) {
+      request = this.addToken(request, token);
+    }
+    return next.handle(request).pipe(catchError(error => {
+      if (error instanceof HttpErrorResponse && error.status === 401) {
+        return this.handle401Error(request, next);
+      } else {
+        return throwError(error);
+      }
+    }));
+  }
+
+  private addToken(request: HttpRequest<any>, token: string) {
+    console.log("add token")
+    return request.clone({
+      setHeaders: {
+        'Authorization': `Bearer ${token}`
+      }
+    });
+  }
+
+
+  private handle401Error(request: HttpRequest<any>, next: HttpHandler) {
+    if (!this.isRefreshToken) {
+      this.isRefreshToken = true;
+      this.refreshTokenSubject.next(null);
+      console.log('hdsf');
+
+      return this.authService.setRefreshToken().pipe(
+        switchMap((token) => {
+          this.isRefreshToken = false;
+          this.refreshTokenSubject.next(true);
+          return next.handle(this.addToken(request, token));
+        }));
+
+    } else {
+      return this.refreshTokenSubject.pipe(
+        filter(token => token != null),
+        take(1),
+        switchMap(jwt => {
+          return next.handle(this.addToken(request, jwt));
+        }));
+    }
+  }
+}

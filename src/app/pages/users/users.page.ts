@@ -37,6 +37,7 @@ export class UsersPage implements OnInit {
 
   GetUsers() {
     this.userService.getUsers().subscribe(result => {
+      console.log(result, "users")
       //console.log(result)
       this.users = result;
       console.log(this.users);

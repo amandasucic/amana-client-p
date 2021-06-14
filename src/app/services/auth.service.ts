@@ -18,6 +18,7 @@ export class AuthService {
   authenticationState = new BehaviorSubject(false);
   authService: any;
   public token: string;
+    currentAccessToken: any;
   constructor(
     private http: HttpClient,
     private storage: Storage
@@ -33,9 +34,8 @@ export class AuthService {
       map((res: { accessToken, refreshToken }) => {
         this.storage.set("token", res.accessToken.token);
         localStorage.setItem("token", res.accessToken.token);
-        this.storage.set("refreshToken", res.refreshToken.token);
-        localStorage.setItem("refreshToken",res.refreshToken.token);
-        /*this.storage.set("role", res.accessToken.role);*/
+        this.storage.set("refreshToken", res.refreshToken);
+        localStorage.setItem("refreshToken",res.refreshToken);
         this.authenticationState.next(true);
         return true;
       }),
@@ -60,15 +60,8 @@ export class AuthService {
   }
 
   getrefreshToken(){
-    localStorage.getItem('refreshToken');
-    this.storage.get("refreshToken").then((result) => {
-      this.token = result;
-    })
-    //this.storage.get("token").then(token => {
 
     return  localStorage.getItem('refreshToken');
-
-
   }
 
   isAuthenticated() {
@@ -81,8 +74,21 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem("token");
-
+    localStorage.removeItem("refreshToken");
     this.authenticationState.next(false);
-
+    
   }
+  setRefreshToken(){
+    return this.http.post(this.url + 'api/aut/v1/Auth/refreshtoken', {'accessToken': localStorage.getItem('token'),'refreshToken': localStorage.getItem('refreshToken')}).pipe(
+      map((res: { accessToken, refreshToken }) => {
+        this.storage.set("token", res.accessToken.token);
+        localStorage.setItem("token", res.accessToken.token);
+        this.storage.set("refreshToken", res.refreshToken);
+        localStorage.setItem("refreshToken",res.refreshToken);
+        /*this.storage.set("role", res.accessToken.role);*/
+        this.authenticationState.next(true);
+        return localStorage.getItem('token');
+      }),
+    )
+    }
 }

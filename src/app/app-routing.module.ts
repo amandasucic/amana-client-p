@@ -11,13 +11,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule)
+    loadChildren: () => import('./hello/hello.module').then( m => m.HelloPageModule), canActivate:[AuthGuard]
    
     
   },
   {
     path: 'splash',
-    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule), 
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
   },
   
   {
@@ -34,7 +34,6 @@ const routes: Routes = [
     path: 'profil',
     loadChildren: () => import('./profil/profil.module').then( m => m.ProfilPageModule)
   },
-  
 
  
  

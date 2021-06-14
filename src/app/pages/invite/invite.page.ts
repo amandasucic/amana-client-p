@@ -32,6 +32,9 @@ export class InvitePage implements OnInit {
   ngOnInit() {
     this.UserForm();
   }
+  cancel(){
+    this.router.navigateByUrl('invite');
+  }
 
   UserForm() {
     this.inviteForm = this.formBuilder.group({

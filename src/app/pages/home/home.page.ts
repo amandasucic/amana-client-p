@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
     
  
   ngOnInit() {
+    this.authService.isAuthenticated()
    /*this.authService.getRoles()*/
   }
 
