@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Storage } from '@ionic/storage-angular' ;
-import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AuthGuard } from './services/auth-guard.service';
 import { JwtIntercepter } from './helpers/jwt.interceptor';
 import {IonicStorageModule} from '@ionic/storage-angular';

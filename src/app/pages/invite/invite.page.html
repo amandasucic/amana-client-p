@@ -8,16 +8,11 @@
 </ion-header>
 
 <ion-content>
-  <div class="container">
-    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png"/>
+  <div class="container ion-text-center">
+    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg/"/>
+    <h1>Invite Users</h1>
   </div>
     
-    <ion-button  shape='round' color='success' (click)="onsend(inviteForm)">Send</ion-button>
-    
-    
-    <ion-button  shape='round' color='danger' (click)="cancel()">Cancel</ion-button>
-    
-    <h1>Invite Users</h1>
     
       <ion-list *ngIf="inviteForm">
         <form [formGroup]="inviteForm">    
@@ -38,5 +33,8 @@
         </form>
 
       </ion-list>
-        
+      <ion-button  shape='round' color='success' (click)="onsend(inviteForm)">Send</ion-button>
+    
+    
+      <ion-button  shape='round' color='danger' (click)="cancel()">Cancel</ion-button>
 </ion-content>

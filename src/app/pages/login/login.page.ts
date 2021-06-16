@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
   onSubmit(credForm: FormGroup) {
     this.submitted = true;
 
-    // stop here if form is invalid
+    
     if (credForm.invalid) {
       return;
     }

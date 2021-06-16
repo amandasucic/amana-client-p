@@ -49,11 +49,11 @@ export class DetailsPage implements OnInit {
 
   UserForm(){
     this.detailsForm=this.formBuilder.group({
-      //"firstname": new FormControl(this.user.firstName),
       firstname: [this.user.firstName, Validators.required],
       email: [this.user.lastName, Validators.required],
       phone: [this.user.phone, Validators.required],
       mobile: [this.user.mobile, Validators.required],
+      pin: [this.user.pin, Validators.required],
       
     })
   }

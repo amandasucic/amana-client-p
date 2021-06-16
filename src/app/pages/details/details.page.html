@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color='primary'>
-    <ion-title>details</ion-title>
+    <ion-title>Details</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="hello/home"></ion-back-button>
     </ion-buttons>
@@ -9,7 +9,8 @@
 
 <ion-content>
   <div class="container ion-text-center">
-    <img src="https://pisalica.com/wp-content/uploads/2019/05/crm-sustav.png" />
+    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
+    <h1>Statistic</h1>
   </div>
 
   <div>
@@ -20,8 +21,7 @@
     </ion-fab>
   </div>
 
-  <h1>Statistic</h1>
-
+      
   <div>
     <ion-item (click)="this.show_details=true; this.show_user_statistic=false">
       <ion-label><b>Details</b></ion-label>
@@ -32,29 +32,29 @@
     <ion-list *ngIf="detailsForm">
       <form [formGroup]="detailsForm">
         <ion-item>
-          <ion-label position="stacked">First name: </ion-label>
-          <ion-input formControlName="firstname" type="text"></ion-input>
+          <ion-label position="floating">First name: </ion-label>
+          <ion-input formControlName="firstname" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Pin </ion-label>
-          <ion-input formControlName="pin" type="text"></ion-input>
+          <ion-label position="floating">Pin: </ion-label>
+          <ion-input formControlName="pin" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Email: </ion-label>
-          <ion-input formControlName="email" type="text"></ion-input>
+          <ion-label position="floating">Email: </ion-label>
+          <ion-input formControlName="email" type="text" required></ion-input>
         </ion-item>
 
        
         <ion-item>
-          <ion-label position="stacked">Phone: </ion-label>
-          <ion-input formControlName="phone" type="text"></ion-input>
+          <ion-label position="floating">Phone: </ion-label>
+          <ion-input formControlName="phone" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Mobile: </ion-label>
-          <ion-input formControlName="mobile" type="text"></ion-input>
+          <ion-label position="floating">Mobile: </ion-label>
+          <ion-input formControlName="mobile" type="text" required></ion-input>
         </ion-item>
       </form>
     </ion-list>

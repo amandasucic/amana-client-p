@@ -24,7 +24,7 @@ export class UsersPage implements OnInit {
 
   ngOnInit() {
     this.GetUsers();
-    //this.users=this.usersServiceService.getUsers();
+    
     
   }
   invite() {
@@ -32,13 +32,13 @@ export class UsersPage implements OnInit {
   }
 
   details(userId: string) {
-    //this.router.navigate(['details/', userId])
+    
   }
 
   GetUsers() {
     this.userService.getUsers().subscribe(result => {
       console.log(result, "users")
-      //console.log(result)
+     
       this.users = result;
       console.log(this.users);
     });

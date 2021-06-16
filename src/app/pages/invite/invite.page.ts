@@ -38,7 +38,7 @@ export class InvitePage implements OnInit {
 
   UserForm() {
     this.inviteForm = this.formBuilder.group({
-      //"firstname": new FormControl(this.user.firstName),
+    
       email: ['', Validators.required],
       subject: ['', Validators.required],
       message: ['', Validators.required],

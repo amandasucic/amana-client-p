@@ -3,10 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Profil } from 'src/app/models/profil';
-import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilService } from 'src/app/services/profil.service';
-import { UsersServiceService } from 'src/app/services/users-service.service';
+
 
 
 
@@ -53,7 +52,6 @@ export class SettingsPage implements OnInit {
 
   ProfilForm(){
     this.profilForm=this.formBuilder.group({
-      //"firstname": new FormControl(this.user.firstName),
       firstname: [this.profil.firstName, Validators.required],
       lastname: [this.profil.lastName, Validators.required],
       middlename: [this.profil.middleName, Validators.required],

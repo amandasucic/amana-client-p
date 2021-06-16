@@ -25,19 +25,6 @@ export class SplashPage implements OnInit {
     }},3000);
 
 
-
-
-
-    /* this.authService.authenticationState.subscribe(state => {
-        if (state) {
-          
-          this.router.navigate(['hello/home']);
-        } else {
-          
-          this.router.navigate(['login']);
-        }
-      });
-    }, 1000);*/
      
   }
      

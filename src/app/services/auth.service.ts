@@ -12,9 +12,6 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class AuthService {
 
-
-
-  url = environment.url;
   authenticationState = new BehaviorSubject(false);
   authService: any;
   public token: string;
@@ -30,7 +27,7 @@ export class AuthService {
   login(credentials) {
     /*let headers = new Headers({ 'Authorization': 'Bearer ' + this.authService.token});*/
     /* let options = new RequestOptions({ headers: headers });*/
-    return this.http.post(this.url + 'api/aut/v1/Auth/login', credentials).pipe(
+    return this.http.post(environment.url + 'api/aut/v1/Auth/login', credentials).pipe(
       map((res: { accessToken, refreshToken }) => {
         this.storage.set("token", res.accessToken.token);
         localStorage.setItem("token", res.accessToken.token);
@@ -79,7 +76,7 @@ export class AuthService {
     
   }
   setRefreshToken(){
-    return this.http.post(this.url + 'api/aut/v1/Auth/refreshtoken', {'accessToken': localStorage.getItem('token'),'refreshToken': localStorage.getItem('refreshToken')}).pipe(
+    return this.http.post(environment.url + 'api/aut/v1/Auth/refreshtoken', {'accessToken': localStorage.getItem('token'),'refreshToken': localStorage.getItem('refreshToken')}).pipe(
       map((res: { accessToken, refreshToken }) => {
         this.storage.set("token", res.accessToken.token);
         localStorage.setItem("token", res.accessToken.token);
