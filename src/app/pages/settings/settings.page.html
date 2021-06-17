@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar color='primary'>
+  <ion-toolbar>
     <ion-title>Settings</ion-title>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="hello/home"></ion-back-button>
@@ -31,28 +31,28 @@
      <ion-list *ngIf="profilForm">
       <form [formGroup]="profilForm">
         <ion-item>
-          <ion-label position="stacked">First name: </ion-label>
+          <ion-label position="stacked"><b>First name:</b> </ion-label>
           <ion-input formControlName="firstname" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Last name: </ion-label>
+          <ion-label position="stacked"><b>Last name:</b> </ion-label>
           <ion-input formControlName="lastname" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">Email: </ion-label>
+          <ion-label position="stacked"><b>Email: </b></ion-label>
           <ion-input formControlName="email" type="text"></ion-input>
         </ion-item>
 
        
         <ion-item>
-          <ion-label position="stacked">Middle Name: </ion-label>
+          <ion-label position="stacked"><b>Middle Name:</b> </ion-label>
           <ion-input formControlName="middlename" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked">User Name: </ion-label>
+          <ion-label position="stacked"><b>User Name:</b></ion-label>
           <ion-input formControlName="username" type="text"></ion-input>
         </ion-item>
       </form>

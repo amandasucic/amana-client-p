@@ -1,35 +1,39 @@
 <ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>Login</ion-title>
-    
-  
-  </ion-toolbar>
+  <ion-toolbar>
+   <ion-buttons slot="start">
+     <ion-button color='primary'>
+      <ion-back-button defaultHref="spalsh"></ion-back-button>
+       <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+
+     </ion-button>
+   </ion-buttons>
+   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="container ion-text-center">
     <img src="https://secure.webtoolhub.com/static/resources/icons/set72/e377285f.png"/>
-    <h1>Sign In</h1>
+    
+    <h1>Login</h1>
   
-  </div>
- 
-
       <ion-list *ngIf="credentialsForm">
         <form [formGroup]="credentialsForm" >
-         <ion-item>
-           <ion-label position="floating">Username</ion-label>
-           <ion-input formControlName="username" type="text" required></ion-input>
-         </ion-item>
-  
-         <ion-item>
-           <ion-label position="floating">Password</ion-label>
-           <ion-input formControlName="password" type="password" required></ion-input>
-         </ion-item>
+         
+          <ion-item>
+            <ion-label position="stacked">Username</ion-label>
+            <ion-input formControlName="username" type="text" required></ion-input>
+          </ion-item>
+   
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input formControlName="password" type="password" required></ion-input>
+          </ion-item>
         
   
   
-              
-        <ion-button expand='block' shape='round' fill='solid' color='success' type='submit' [disabled]="!credentialsForm.valid" (click)="onSubmit(credentialsForm)">Login</ion-button>
+         <div class='container ion-text-center' >    
+        <ion-button expand='block' shape='round' color='secondary' type='submit' [disabled]="!credentialsForm.valid" (click)="onSubmit(credentialsForm)">Login</ion-button>
+      </div>
       </form>
       </ion-list>
     
