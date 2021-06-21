@@ -26,37 +26,39 @@
     <div> 
       <ion-item (click)="this.show_profil=true; this.show_profil_statistic=false">
         <ion-label><b>Profil</b></ion-label>
-        <ion-icon name="bag-add-outline"></ion-icon>
+        
       </ion-item>
+      <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
      <ion-list *ngIf="profilForm">
       <form [formGroup]="profilForm">
         <ion-item>
-          <ion-label position="stacked"><b>First name:</b> </ion-label>
+          <ion-label position="stacked"><b>First name</b> </ion-label>
           <ion-input formControlName="firstname" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked"><b>Last name:</b> </ion-label>
+          <ion-label position="stacked"><b>Last name</b> </ion-label>
           <ion-input formControlName="lastname" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked"><b>Email: </b></ion-label>
+          <ion-label position="stacked"><b>Email</b></ion-label>
           <ion-input formControlName="email" type="text"></ion-input>
         </ion-item>
 
        
         <ion-item>
-          <ion-label position="stacked"><b>Middle Name:</b> </ion-label>
+          <ion-label position="stacked"><b>Middle Name</b> </ion-label>
           <ion-input formControlName="middlename" type="text"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="stacked"><b>User Name:</b></ion-label>
+          <ion-label position="stacked"><b>User Name</b></ion-label>
           <ion-input formControlName="username" type="text"></ion-input>
         </ion-item>
       </form>
     </ion-list>
+      </div>
   </div>
     
     

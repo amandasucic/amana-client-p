@@ -10,7 +10,7 @@
 <ion-content>
   <div class="container ion-text-center">
     <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
-    <h1>Statistic</h1>
+    <h1>Details</h1>
   </div>
 
   <div>
@@ -24,31 +24,30 @@
       
   <div>
     <ion-item (click)="this.show_details=true; this.show_user_statistic=false">
-      <ion-label><b>Details</b></ion-label>
-      <ion-icon name="bag-add-outline"></ion-icon>
+      <ion-label><b></b></ion-label>
     </ion-item>
 
-
+    <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
     <ion-list *ngIf="detailsForm">
       <form [formGroup]="detailsForm">
         <ion-item>
-          <ion-label position="floating">First name: </ion-label>
+          <ion-label position="floating">First name</ion-label>
           <ion-input formControlName="firstname" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Pin: </ion-label>
+          <ion-label position="floating">Pin</ion-label>
           <ion-input formControlName="pin" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Email: </ion-label>
+          <ion-label position="floating">Email</ion-label>
           <ion-input formControlName="email" type="text" required></ion-input>
         </ion-item>
 
        
         <ion-item>
-          <ion-label position="floating">Phone: </ion-label>
+          <ion-label position="floating">Phone</ion-label>
           <ion-input formControlName="phone" type="text" required></ion-input>
         </ion-item>
 
@@ -58,6 +57,7 @@
         </ion-item>
       </form>
     </ion-list>
+    </div>
   </div>
 
   <div>
@@ -75,5 +75,6 @@
       </ion-item>
 
     </ion-list>
+
   </div>
 </ion-content>

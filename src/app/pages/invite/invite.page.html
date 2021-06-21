@@ -12,11 +12,11 @@
     <h1>Invite Users</h1>
   </div>
     
-    
+  <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
       <ion-list *ngIf="inviteForm">
         <form [formGroup]="inviteForm">    
           <ion-item>
-           <ion-label position="stacked">Send</ion-label>
+           <ion-label position="stacked">Email</ion-label>
            <ion-input formControlName="email" type="text"></ion-input>
           </ion-item>
   
@@ -26,12 +26,13 @@
          </ion-item>
 
          <ion-item>
-          <ion-label position="stacked">Messages</ion-label>
-          <ion-textarea formControlName="message" rows="10"></ion-textarea>
+          <ion-label position="stacked">Message</ion-label>
+          <ion-textarea formControlName="message" rows="7"></ion-textarea>
          </ion-item>
         </form>
 
       </ion-list>
+  </div>
       <ion-button  shape='round' color='success' (click)="onsend(inviteForm)">Send</ion-button>
     
     
