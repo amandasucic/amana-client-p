@@ -20,6 +20,7 @@ export class DetailsPage implements OnInit {
   usersServiceService: any;
   public id: string;
   public detailsForm: FormGroup;
+  resentmodel: import("c:/Users/amand/Desktop/amanda-client-p-main/amanda-client-p-main/src/app/models/resent-pin").ResentPin;
 
   constructor(public formBuilder: FormBuilder, private Activatedroute: ActivatedRoute,
     private router: Router,
@@ -48,7 +49,7 @@ export class DetailsPage implements OnInit {
   }
 
   UserForm(){
-    this.detailsForm=this.formBuilder.group({
+    this.detailsForm=this.formBuilder.group({  
       firstname: [this.user.firstName, Validators.required],
       email: [this.user.lastName, Validators.required],
       phone: [this.user.phone, Validators.required],
@@ -56,6 +57,13 @@ export class DetailsPage implements OnInit {
       pin: [this.user.pin, Validators.required],
       
     })
+  }
+
+  onclick() {
+    this.userService.resentpin(this.user.id,this.user.brandId)
+      .subscribe((response) => {
+        console.log(response, 'succes')
+      });
   }
 }
 
