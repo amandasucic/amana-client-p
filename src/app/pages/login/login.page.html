@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+  
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ion-text-center">
+    <img src="https://secure.webtoolhub.com/static/resources/icons/set72/e377285f.png" />
+
+    <h1>Login</h1>
+
+    <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
+      <ion-list *ngIf="credentialsForm">
+        <form [formGroup]="credentialsForm">
+          <ion-item>
+            <ion-label position="stacked">Username</ion-label>
+            <ion-input formControlName="username" type="text" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="stacked">Password</ion-label>
+            <ion-input formControlName="password" type="password" required></ion-input>
+          </ion-item>
+
+          <div class='container ion-text-center'>
+            <ion-button expand='block' shape='round' color='primary' type='submit' [disabled]="!credentialsForm.valid"
+              (click)="onSubmit(credentialsForm)">Login</ion-button>
+          </div>
+        </form>
+
+      </ion-list>
+    </div>
+  </div>
+</ion-content>

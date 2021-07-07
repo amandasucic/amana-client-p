@@ -1,0 +1,33 @@
+ion-toolbar{
+    --background: #4c8dff;
+  }
+
+ /* ion-button{
+    margin-bottom: 35px;
+    height:28px ;
+    font-size: 30px;
+    text-transform:initial;
+    border-radius: 50px;
+    box-shadow: 1px 8px 8px 0px rgba(0,0,0,0.5);
+  }*/
+  
+    ion-item{
+      margin-top: 15px;
+      background: #537fcc;
+  
+    }
+  
+    img{
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      border: 8px solid #ffff;
+      
+    }
+  ion-content{
+    background: #537fcc;
+  
+  .container{
+    background: linear-gradient(to top, #537fcc 0%, #fff 100%); 
+  }
+}

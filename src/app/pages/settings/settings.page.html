@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="hello/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <div class="container ion-text-center">
+    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg/"/>
+    <h1>About me</h1>
+  </div>
+   
+  
+   
+    <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;"> 
+      <ion-item (click)="this.show_profil=true; this.show_profil_statistic=false">
+        <ion-label><b>Profil</b></ion-label>
+        
+      </ion-item>
+      <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
+     <ion-list *ngIf="profilForm">
+      <form [formGroup]="profilForm">
+        <ion-item>
+          <ion-label position="stacked"><b>First name</b> </ion-label>
+          <ion-input formControlName="firstname" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked"><b>Last name</b> </ion-label>
+          <ion-input formControlName="lastname" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked"><b>Email</b></ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+
+       
+        <ion-item>
+          <ion-label position="stacked"><b>Middle Name</b> </ion-label>
+          <ion-input formControlName="middlename" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked"><b>User Name</b></ion-label>
+          <ion-input formControlName="username" type="text"></ion-input>
+        </ion-item>
+      </form>
+    </ion-list>
+      </div>
+  </div>
+    
+    
+    
+  <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;"> 
+    <ion-item (click)="this.show_help=true; this.show_profil=false">
+      <ion-label><b>Help</b></ion-label>
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-item>
+    <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;"> 
+     <ion-list *ngIf="show_help">
+      <ion-item>
+        <ion-label>Change password?</ion-label>
+        
+        
+      </ion-item>
+      
+    
+        
+       
+     </ion-list>
+    </div>    
+  </div>
+    <div>
+      <ion-fab horizontal="start" vertical="left">
+       <ion-button fill='clear' color='primary' (click)="logout()">
+         
+         Logout
+       </ion-button>
+     </ion-fab>
+    </div>
+</ion-content>
+

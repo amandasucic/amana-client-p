@@ -1,0 +1,7 @@
+{
+  "name": "amanda-client-p",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,16 @@
+.container{
+    margin-top: 0%;
+    
+    .searchbar{
+        height: 200px;
+        margin-inline-start: 0px;
+    }
+}
+
+ion-toolbar{
+    --background: #4c8dff;
+  }
+
+  ion-item {
+    --border-color: blue;
+  }

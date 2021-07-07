@@ -1,0 +1,35 @@
+//.container{
+   // margin-top: 0%;
+    //    height: 200px;
+    //}
+  //}//
+  
+
+ ion-toolbar{
+   --background: #4c8dff;
+ }
+ion-content{
+  --background: #537fcc;
+  ion-item {
+    --border-color: blue;
+  }
+  
+}
+   img{
+     width: 125px;
+     height: 125px;
+     border-radius: 50%;
+     border: 8px solid #ffff;
+     
+   }
+  
+ 
+ion-button{
+  margin-top: 55px;
+  height: 50px ;
+  font-size: 25px;
+  text-transform:initial;
+  border-radius: 50px;
+  box-shadow: 1px 8px 8px 0px rgba(0,0,0,0.5);
+  
+}

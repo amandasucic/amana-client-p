@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>Details</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="hello/home"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ion-text-center">
+    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
+    <h1>Details</h1>
+  </div>
+
+  <div>
+    <ion-fab horizontal="end" vertical="right">
+      <ion-button shape='round' color='success' (click)="onclick()">
+        Resent pin
+      </ion-button>
+    </ion-fab>
+  </div>
+
+      
+  <div>
+    <ion-item (click)="this.show_details=true; this.show_user_statistic=false">
+      <ion-label><b></b></ion-label>
+    </ion-item>
+
+    <div class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;">
+    <ion-list *ngIf="detailsForm">
+      <form [formGroup]="detailsForm">
+        <ion-item>
+          <ion-label position="floating">First name</ion-label>
+          <ion-input formControlName="firstname" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Pin</ion-label>
+          <ion-input formControlName="pin" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="text" required></ion-input>
+        </ion-item>
+
+       
+        <ion-item>
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input formControlName="phone" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Mobile: </ion-label>
+          <ion-input formControlName="mobile" type="text" required></ion-input>
+        </ion-item>
+      </form>
+    </ion-list>
+    </div>
+  </div>
+
+  <div>
+    <ion-item (click)="this.show_user_statistic=true; this.show_details=false">
+      <ion-label><b>User statistic</b></ion-label>
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-list *ngIf="show_user_statistic">
+      <ion-item>
+        <ion-label>YOUR ACTIVITY</ion-label>
+        <ion-icon name="alarm-outline"></ion-icon>
+      </ion-item>
+      <ion-item>
+        <ion-label>VISITS THIS MONTH</ion-label>
+      </ion-item>
+
+    </ion-list>
+
+  </div>
+</ion-content>

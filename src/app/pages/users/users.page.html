@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="container ion-text-center">
+    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg/">
+  </div>
+  <ion-fab horizontal="end" vertical="right">
+    <ion-button  shape='round' color='success' (click)="invite()">
+       <ion-icon  name="add-outline"></ion-icon>
+       Invite
+    </ion-button>
+ </ion-fab>
+ <ion-item>
+  <ion-label postition="stacked"><b></b></ion-label>
+ </ion-item>
+  <div *ngIf="users"  class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;" >
+  <ion-list *ngFor="let user of users">
+    <ion-item>
+      <ion-thumbnail>
+        <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">{{user.firstName}}</ion-label>
+      
+      <ion-icon>{{user.lastName}}</ion-icon>
+      <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">Details</button>
+      <ion-label>{{user.email}}</ion-label>
+    </ion-item>
+  </ion-list>
+  </div>
+  
+  
+
+
+  
+
+
+
+</ion-content>
