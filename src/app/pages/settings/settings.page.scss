@@ -24,10 +24,11 @@ ion-toolbar{
       border: 8px solid #ffff;
       
     }
-  ion-content{
-    background: #537fcc;
   
-  .container{
-    background: linear-gradient(to top, #537fcc 0%, #fff 100%); 
-  }
+    
+  
+
+ion-button{
+  width: 80px;
+  height: 45px;
 }

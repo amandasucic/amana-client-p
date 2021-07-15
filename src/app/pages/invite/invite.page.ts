@@ -33,7 +33,7 @@ export class InvitePage implements OnInit {
     this.UserForm();
   }
   cancel(){
-    this.router.navigateByUrl('invite');
+    this.router.navigateByUrl('hello/home');
   }
 
   UserForm() {

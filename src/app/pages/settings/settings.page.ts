@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Profil } from 'src/app/models/profil';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfilService } from 'src/app/services/profil.service';
+import { AlertController } from '@ionic/angular';
 
 
 
@@ -24,7 +25,7 @@ export class SettingsPage implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private Activatedroute: ActivatedRoute,
     private router: Router,
-    private profilService: ProfilService, private authService: AuthService) {
+    private profilService: ProfilService, private authService: AuthService,public alertCtrl: AlertController) {
     this.profil = null;
     this.loggedIn=this.authService.isAuthenticated();
   }
@@ -38,6 +39,7 @@ export class SettingsPage implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigate(['login'])
+    this.presentPrompt();
   
 }
 
@@ -57,9 +59,33 @@ export class SettingsPage implements OnInit {
       middlename: [this.profil.middleName, Validators.required],
       email: [this.profil.email, Validators.required],
       username: [this.profil.userName, Validators.required],
+      pictureUrl:[this.profil.pictureUrl, Validators.required],
 
       
     })
+  }
+  async presentPrompt() {
+    const alert = await this.alertCtrl.create({
+    header: 'Do yo want logout',
+      buttons: [
+        {
+          text: 'YES',
+          role: 'YES',
+          handler: data => {
+            console.log('YES');
+          }
+        },
+        {
+          text: 'NO',
+          role: 'NO',
+          handler: data => {
+            console.log('NO');
+          }
+        },
+        
+      ]
+    });
+    await alert.present();
   }
 }
 

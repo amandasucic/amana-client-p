@@ -19,11 +19,14 @@ export class JwtIntercepter implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("interc")
+   /*console.log("interc")
     let authenticated = this.authService.isAuthenticated();
     var token = this.authService.getToken();
     if (authenticated) {
       request = this.addToken(request, token);
+    }*/
+    if(localStorage.getItem('token') != undefined){
+      request= this.addToken(request, localStorage.getItem('token'));
     }
     return next.handle(request).pipe(catchError(error => {
       if (error instanceof HttpErrorResponse && error.status === 401) {

@@ -6,10 +6,10 @@
 
 <ion-content>
   <div class="container ion-text-center">
-    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg/">
+    <img src="https://www.prestele-it.com/wp-content/uploads/2020/09/AdobeStock_268786932.jpg">
   </div>
   <ion-fab horizontal="end" vertical="right">
-    <ion-button  shape='round' color='success' (click)="invite()">
+    <ion-button  fiil='clear' (click)="invite()">
        <ion-icon  name="add-outline"></ion-icon>
        Invite
     </ion-button>
@@ -17,17 +17,21 @@
  <ion-item>
   <ion-label postition="stacked"><b></b></ion-label>
  </ion-item>
-  <div *ngIf="users"  class="container ion-text-center" style="padding-left: 5%; padding-right: 5%;" >
+  <div *ngIf="users"  class="container ion-text-center" style="padding-left: 8%; padding-right: 8%;" >
   <ion-list *ngFor="let user of users">
     <ion-item>
       <ion-thumbnail>
-        <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">{{user.firstName}}</ion-label>
+        <img src='https://www.partycenter.hr/pub/media/catalog/product/cache/754aa68291bea14ccb65cfa0f145e90f/l/e/letter_k_empty_frame_.jpg'>
+       
       
-      <ion-icon>{{user.lastName}}</ion-icon>
-      <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">Details</button>
+      </ion-thumbnail>
+      <ion-label class="ion-text-wrap">{{user.firstName}}{{user.lastName}}</ion-label>
       <ion-label>{{user.email}}</ion-label>
+      <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">Details</button>
+      <button>
+      <ion-icon name="trash-outline"></ion-icon>
+      </button>
+     
     </ion-item>
   </ion-list>
   </div>

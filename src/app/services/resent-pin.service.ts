@@ -7,7 +7,7 @@ import { ResentPin } from '../models/resent-pin';
   providedIn: 'root'
 })
 export class ResentPinService{
-  url = 'https://resources.xtend.project.cox4.eu/api/cpm_mobile/v1/AppContacts/ResentPin';
+  url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser/1/ResentPin';
   httpOptions = {
    
 

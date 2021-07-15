@@ -51,7 +51,10 @@ export class DetailsPage implements OnInit {
   UserForm(){
     this.detailsForm=this.formBuilder.group({  
       firstname: [this.user.firstName, Validators.required],
+      lastname: [this.user.lastName, Validators.required],
       email: [this.user.lastName, Validators.required],
+      status: [this.user.status, Validators.required],
+      role: [this.user.role, Validators.required],
       phone: [this.user.phone, Validators.required],
       mobile: [this.user.mobile, Validators.required],
       pin: [this.user.pin, Validators.required],

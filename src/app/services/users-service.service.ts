@@ -8,8 +8,8 @@ import {ResentPin} from '../models/resent-pin';
 @Injectable()
 export class UsersServiceService {
 
-  url = "https://resources.xtend.project.cox4.eu/api/cpm/v1/AppContacts";
-  url1 = "https://resources.xtend.project.cox4.eu/api/cpm/v1/AppContacts/1";
+  url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser';
+  url1 = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser/1/appContacts';
   
  //url2="api/cpm/v1/AppContacts/ResentPin";
   constructor(private http: HttpClient) { }
@@ -30,4 +30,5 @@ export class UsersServiceService {
     return this.http.post(this.url1+"/ResentPin", body)
     .pipe()
   }
+
 }

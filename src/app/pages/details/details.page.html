@@ -9,13 +9,13 @@
 
 <ion-content>
   <div class="container ion-text-center">
-    <img src="https://cdn1.vectorstock.com/i/thumb-large/99/30/crm-icons-customer-relationship-management-vector-20619930.jpg"/>
+    <img src="https://www.oiml.org/en/oiml-cs/pics/contact2.jpg"/>
     <h1>Details</h1>
   </div>
 
   <div>
     <ion-fab horizontal="end" vertical="right">
-      <ion-button shape='round' color='success' (click)="onclick()">
+      <ion-button  expand='full' (click)="onclick()">
         Resent pin
       </ion-button>
     </ion-fab>
@@ -36,8 +36,8 @@
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Pin</ion-label>
-          <ion-input formControlName="pin" type="text" required></ion-input>
+          <ion-label position="floating">Last name</ion-label>
+          <ion-input formControlName="lastname" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
@@ -45,15 +45,30 @@
           <ion-input formControlName="email" type="text" required></ion-input>
         </ion-item>
 
-       
+         <ion-item>
+          <ion-label position="floating">Status</ion-label>
+          <ion-input formControlName="status" type="text" required></ion-input>
+        </ion-item>
+
+         <ion-item>
+          <ion-label position="floating">Role</ion-label>
+          <ion-input formControlName="role" type="text" required></ion-input>
+        </ion-item>
+
+
         <ion-item>
-          <ion-label position="floating">Phone</ion-label>
-          <ion-input formControlName="phone" type="text" required></ion-input>
+          <ion-label position="floating">Pin</ion-label>
+          <ion-input formControlName="pin" type="text" required></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label position="floating">Mobile: </ion-label>
+          <ion-label position="floating">Mobile</ion-label>
           <ion-input formControlName="mobile" type="text" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input formControlName="phone" type="text" required></ion-input>
         </ion-item>
       </form>
     </ion-list>

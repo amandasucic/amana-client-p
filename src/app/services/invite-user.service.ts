@@ -7,7 +7,7 @@ import { InviteUser } from '../models/invite-user';
   providedIn: 'root'
 })
 export class InviteUserService {
-  url = 'https://resources.xtend.project.cox4.eu/api/cpm_mobile/v1/AppContacts/InviteUser';
+  url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser/InviteUser';
   httpOptions = {
    
 
