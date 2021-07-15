@@ -39,7 +39,7 @@ export class SettingsPage implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigate(['login'])
-    this.presentPrompt();
+    
   
 }
 
@@ -64,28 +64,6 @@ export class SettingsPage implements OnInit {
       
     })
   }
-  async presentPrompt() {
-    const alert = await this.alertCtrl.create({
-    header: 'Do yo want logout',
-      buttons: [
-        {
-          text: 'YES',
-          role: 'YES',
-          handler: data => {
-            console.log('YES');
-          }
-        },
-        {
-          text: 'NO',
-          role: 'NO',
-          handler: data => {
-            console.log('NO');
-          }
-        },
-        
-      ]
-    });
-    await alert.present();
-  }
+  
 }
 
