@@ -24,6 +24,7 @@ export class UsersPage implements OnInit {
 
   ngOnInit() {
     this.GetUsers();
+    this.Getlanguage();
     
     
   }
@@ -41,6 +42,15 @@ export class UsersPage implements OnInit {
      
       this.users = result;
       console.log(this.users);
+    });
+  }
+  Getlanguage() {
+    this.userService.getlanguage('1').subscribe(result => {
+      console.log(result, "language")
+     
+      this.language = result;
+      console.log(this.language);
+      
     });
   }
  

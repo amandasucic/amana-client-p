@@ -29,6 +29,7 @@ export class User {
   mobile: string;
   pin: string;
   status: string;
+  languageId:string;
 
   
 
@@ -51,5 +52,6 @@ export class User {
     this.pin = '';
     this.status='';
     this.enabled = true;
+    this.languageId='';
   }
 }

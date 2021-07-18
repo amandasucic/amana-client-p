@@ -19,6 +19,7 @@ export class InvitePage implements OnInit {
   inviteForm: FormGroup;
   invitemodel: InviteUser;
   zone: any;
+  language: InviteUser[];
 
 
 
@@ -31,6 +32,7 @@ export class InvitePage implements OnInit {
   }
   ngOnInit() {
     this.UserForm();
+    this.Getlanguage();
   }
   cancel(){
     this.router.navigateByUrl('hello/home');
@@ -43,6 +45,7 @@ export class InvitePage implements OnInit {
       subject: ['', Validators.required],
       message: ['', Validators.required],
       brandId: [1, Validators.required],
+      languageId: [1, Validators.required],
 
     })
   }
@@ -53,5 +56,16 @@ export class InvitePage implements OnInit {
         this.invitemodel = response
       });
   }
+
+  Getlanguage() {
+    this.inviteuserservice.getlanguage('1').subscribe(result => {
+      console.log(result, "language")
+     
+      this.language = result;
+      console.log(this.language);
+       this.UserForm();
+    });
+  }
 }
+
 

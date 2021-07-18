@@ -30,5 +30,8 @@ export class UsersServiceService {
     return this.http.post(this.url1+"/ResentPin", body)
     .pipe()
   }
+  getlanguage(id:string) {
+    return this.http.get<User[]>(this.url1);
+  }
 
 }
