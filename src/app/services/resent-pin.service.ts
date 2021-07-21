@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ResentPin } from '../models/resent-pin';
+import {User} from '../models/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResentPinService{
-  url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser/1/ResentPin';
+  url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser';
   httpOptions = {
    
 
@@ -17,13 +18,10 @@ export class ResentPinService{
 
 
   constructor(private httpClient: HttpClient) { }
-  resentpin(_resentpin: ResentPin): Observable<any> {
+  resentpin(userId: number) {
+  let body={userId}
 
-
-    return this.httpClient.post(this.url, JSON.stringify(_resentpin), this.httpOptions)
-      .pipe(
-
-      )
+    return this.httpClient.post(this.url+ '/' + userId + "/ResentPin", body, this.httpOptions)
 
   }
 }

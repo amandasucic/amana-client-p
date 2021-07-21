@@ -25,18 +25,18 @@
           <ion-input formControlName="subject" type="text"></ion-input>
          </ion-item>
 
-         <ion-item>
+        <ion-item>
           <ion-label>Language</ion-label>
-          <ion-select placeholder="Select One">
-          <ion-select-option value="Language">{{invite-user.languageId}}</ion-select-option>
+         <ion-select ionChange=change(l)>
+          <ion-select-option *ngFor="let l of language" [value]='l.languageId'>{{l.languageName}}</ion-select-option>
             
-          </ion-select>
+         </ion-select>
         </ion-item>
 
-         <ion-item>
+        <ion-item>
           <ion-label position="stacked">Message</ion-label>
           <ion-textarea formControlName="message" rows="7"></ion-textarea>
-         </ion-item>
+        </ion-item>
         </form>
 
       </ion-list>

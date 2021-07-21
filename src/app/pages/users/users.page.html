@@ -14,39 +14,30 @@
        Invite
     </ion-button>
  </ion-fab>
+
  <ion-item>
   <ion-label postition="stacked"><b></b></ion-label>
  </ion-item>
-  <div *ngIf="users"  class="container ion-text-center" style="padding-left: 8%; padding-right: 8%;" >
-  <ion-list *ngFor="let user of users">
-    <ion-item>
-      <ion-thumbnail class=" container ion-text-start">
+ <div *ngIf="users"  class="container ion-text-center" style="padding-left: 8%; padding-right: 8%;">
+   <ion-list *ngFor= 'let user of users'>
+     <ion-item>
+       <ion-thumbnail>
         <img src='https://www.partycenter.hr/pub/media/catalog/product/cache/754aa68291bea14ccb65cfa0f145e90f/l/e/letter_k_empty_frame_.jpg'>
-       
-      
-      </ion-thumbnail>
-      <ion-label class="ion-text-wrap">{{user.firstName}}{{user.lastName}}</ion-label>
-      <ion-label>{{user.email}}</ion-label>
-      <ion-item>
-        <ion-label>Language</ion-label>
-        <ion-select placeholder="Select One">
-        <ion-select-option value="Language">{{user.languageId}}</ion-select-option>
-      <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">
-        <ion-icon name="information-circle-outline"></ion-icon>
-      </button>
-      <button>
-      <ion-icon name="trash-outline"></ion-icon>
-      </button>
+       </ion-thumbnail>
      
-    </ion-item>
-  </ion-list>
-  </div>
-  
-  
-
-
-  
-
-
-
+       <ion-label class="ion-text-wrap">{{user.firstName}}{{user.lastName}}</ion-label>
+       <ion-label>{{user.email}}</ion-label>
+      
+    
+        
+        <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">
+          <ion-icon name="information-circle-outline"></ion-icon>
+        </button>
+        <button>
+          <ion-icon name="trash-outline"></ion-icon>
+        </button>
+       </ion-item>
+     
+   </ion-list>
+ </div>
 </ion-content>

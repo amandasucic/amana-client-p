@@ -9,6 +9,7 @@ import { InviteUser } from '../models/invite-user';
 export class InviteUserService {
   url = 'https://resources.xtend.project.cox4.eu/api/cpm/v1/BrandAppUser/InviteUser';
   url1='https://resources.xtend.project.cox4.eu/api/cpm/v1/Brand/1/languageBrands';
+  url2='https://resources.xtend.project.cox4.eu/api/cpm/v1/Brand/';
   httpOptions = {
    
 
@@ -29,7 +30,7 @@ export class InviteUserService {
     
   }
 
-  getlanguage(id:string) {
+  getlanguage(brandId:string) {
     return this.httpClient.get<InviteUser[]>(this.url1);
   }
 }

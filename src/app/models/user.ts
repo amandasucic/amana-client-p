@@ -28,8 +28,8 @@ export class User {
   phone: string;
   mobile: string;
   pin: string;
-  status: string;
-  languageId:string;
+  languageId:number;
+  languageName:string;
 
   
 
@@ -50,8 +50,8 @@ export class User {
     this.address = '';
     this.zip = '';
     this.pin = '';
-    this.status='';
+    this.appContactStatusName='';
     this.enabled = true;
-    this.languageId='';
+   
   }
 }

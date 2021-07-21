@@ -8,6 +8,8 @@ import { UsersPageRoutingModule } from './users-routing.module';
 
 import { UsersPage } from './users.page';
 import { UsersServiceService } from 'src/app/services/users-service.service';
+import{ResentPinService} from 'src/app/services/resent-pin.service';
+
 
 @NgModule({
   imports: [
@@ -19,7 +21,8 @@ import { UsersServiceService } from 'src/app/services/users-service.service';
   ],
   declarations: [UsersPage],
   providers: [
-    UsersServiceService
+    UsersServiceService,
+     ResentPinService
   ]
 })
 export class UsersPageModule {}

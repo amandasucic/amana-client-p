@@ -5,6 +5,8 @@ import { connectableObservableDescriptor } from 'rxjs/internal/observable/Connec
 import { InviteUser } from 'src/app/models/invite-user';
 import { InviteUserService } from 'src/app/services/invite-user.service';
 import { UsersServiceService } from 'src/app/services/users-service.service';
+import { ProfilService } from 'src/app/services/profil.service';
+import { Profil } from 'src/app/models/profil';
 
 
 
@@ -20,6 +22,8 @@ export class InvitePage implements OnInit {
   invitemodel: InviteUser;
   zone: any;
   language: InviteUser[];
+  brandId: string;
+  public profil: Profil;
 
 
 
@@ -27,15 +31,23 @@ export class InvitePage implements OnInit {
   constructor(private router: Router,
     public formBuilder: FormBuilder,
     private inviteuserservice: InviteUserService,
-    private userService: UsersServiceService) {
+    private userService: UsersServiceService,
+    private profilService: ProfilService) {
 
   }
   ngOnInit() {
     this.UserForm();
-    this.Getlanguage();
+    this.GetProfil();
   }
   cancel(){
     this.router.navigateByUrl('hello/home');
+  }
+  GetProfil() {
+    this.profilService.getProfil("1").subscribe(result => {
+       this.profil=result;
+      this.brandId = this.profil.companyId;
+      this.Getlanguage(this.brandId);
+      });
   }
 
   UserForm() {
@@ -57,12 +69,11 @@ export class InvitePage implements OnInit {
       });
   }
 
-  Getlanguage() {
-    this.inviteuserservice.getlanguage('1').subscribe(result => {
+  Getlanguage(brandId:string) {
+    this.inviteuserservice.getlanguage(brandId).subscribe(result => {
       console.log(result, "language")
      
       this.language = result;
-      console.log(this.language);
        this.UserForm();
     });
   }
