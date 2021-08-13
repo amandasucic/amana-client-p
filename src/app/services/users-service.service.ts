@@ -37,6 +37,10 @@ export class UsersServiceService {
   getlanguage(id:number) {
     return this.http.get<Language>(this.url2 + id);
   }
+
+  deleteUser(id: string) {
+    return this.http.delete<User>(this.url + "/" + id);
+  }
    
 
 }

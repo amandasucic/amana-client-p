@@ -13,10 +13,18 @@ ion-toolbar{
 
   ion-item {
     --border-color: blue;
+    .h2{
+      margin-top: 80px;
+      width:45px;
+    .p{
+      font-size:12px;
+    }
+    }
+    
   }
   ion-button{
-    width: 60px;
-    height: 40px;
+    width: 80px;
+    height: 45px;
    
 
   }

@@ -20,6 +20,7 @@ export class UsersPage implements OnInit {
   public profil: Profil;
   brandId: string;
   
+  
   constructor(private router: Router,
     private userService: UsersServiceService,private profilService: ProfilService) {
     this.users = [];
@@ -55,6 +56,12 @@ export class UsersPage implements OnInit {
      
       this.users = result;
       console.log(this.users);
+    });
+  }
+  DeleteUser(id:string){
+    this.userService.deleteUser(id).subscribe(result => {
+      console.log(result, "users")
+     console.log(this.users);
     });
   }
  

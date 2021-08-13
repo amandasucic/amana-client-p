@@ -9,7 +9,7 @@
     <img src="https://www.prestele-it.com/wp-content/uploads/2020/09/AdobeStock_268786932.jpg">
   </div>
   <ion-fab horizontal="end" vertical="right">
-    <ion-button  fiil='clear' (click)="invite()">
+    <ion-button shape='round' color='primary' (click)="invite()">
        <ion-icon  name="add-outline"></ion-icon>
        Invite
     </ion-button>
@@ -21,22 +21,16 @@
  <div *ngIf="users"  class="container ion-text-center" style="padding-left: 8%; padding-right: 8%;">
    <ion-list *ngFor= 'let user of users'>
      <ion-item>
-       <ion-thumbnail>
-        <img src='https://www.partycenter.hr/pub/media/catalog/product/cache/754aa68291bea14ccb65cfa0f145e90f/l/e/letter_k_empty_frame_.jpg'>
-       </ion-thumbnail>
      
-       <ion-label class="ion-text-wrap">{{user.firstName}}{{user.lastName}}</ion-label>
-       <ion-label>{{user.email}}</ion-label>
-      
-    
-        
-        <button [routerLink]="['../../details/',user.id]" style="margin-top: 0%; margin-right: 20%">
+       <h5 item-start>{{user.firstName}}{{user.lastName}}</h5>
+       <p>{{user.email}}</p>
+       <button [routerLink]="['../../details/',user.id]" ion-button clear item-end>
           <ion-icon name="information-circle-outline"></ion-icon>
         </button>
-        <button>
-          <ion-icon name="trash-outline"></ion-icon>
+        <button item-end>
+          <ion-icon name="trash-outline" (click)='DeleteUser(user.id)'></ion-icon>
         </button>
-       </ion-item>
+      </ion-item>
      
    </ion-list>
  </div>

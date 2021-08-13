@@ -9,8 +9,8 @@
 
 <ion-content>
   
-  <div class="container ion-text-center">
-    <img src="pictureUrl"/>
+  <div class ="container ion-text-center" *ngIf='profil.pictureUrl'>
+    <img [src]="profil.pictureUrl"/>
     
   </div>
    
@@ -77,7 +77,7 @@
   </div>
     <div style="padding-left: 15%; padding-right: 15%;">
       <ion-fab horizontal="start" vertical="left">
-       <ion-button expand='full' color='primary' (click)="logout()">
+       <ion-button shape='round' color='primary' (click)="logout()">
          
          Logout
        </ion-button>

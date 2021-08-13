@@ -21,7 +21,7 @@ export class ResentPinService{
   resentpin(userId: number) {
   let body={userId}
 
-    return this.httpClient.post(this.url+ '/' + userId + "/ResentPin", body, this.httpOptions)
+    return this.httpClient.put(this.url+ '/' + userId + "/ResentPin", body, this.httpOptions)
 
   }
 }
